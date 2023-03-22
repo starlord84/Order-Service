@@ -1,0 +1,9 @@
+{% extends 'order/base.html' %}
+
+{% block content %}
+    <h2>Choose option for "{{ org }}" </h2>
+    <ul>
+      <li><a href="{% url 'org-orders' id %}">По дням</a></li>
+      <li><a href="{% url 'months' id %}">По месяцам</a></li>
+    </ul>
+{% endblock %}

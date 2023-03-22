@@ -1,0 +1,15 @@
+{% extends 'order/base.html' %}
+
+{% block content %}
+<h2>Orders for "{{ org }}"</h2>
+{% if orders_by_date  %}
+        {% for o in orders_by_date %}
+        <ul>
+            <li><a href="{% url 'order' o.min_order_id org_id %}">{{ o.date }}</a></li></ul>
+        {% endfor %}
+        {% else %}
+        <ul>
+                <li><h6>No orders for this organization yet</h6></li>
+        </ul>
+{% endif %}
+{% endblock %}

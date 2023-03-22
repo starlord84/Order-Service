@@ -1,0 +1,14 @@
+{% extends 'order/base.html' %}
+
+{% block content %}
+    <h2>Orders for {{ organization.title }}</h2>
+    <p>Months with orders:</p>
+    <ul>
+    {% for month in months_with_orders %}
+        <li><a href="{% url 'test' month.year month.month org_id %}">{{ month.month }}</a></li>
+    {% empty %}
+        <li>No orders yet</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+

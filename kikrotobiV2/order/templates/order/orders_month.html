@@ -1,0 +1,23 @@
+{% extends 'order/base.html' %}
+
+{% block content %}
+<table border="1" width="70%">
+    <tr>
+        <th>Дата</th>
+        {% for order in order_items_detail_list %}
+        <th>
+                {{ order.user }}
+        </th>
+        {% endfor %}
+        <th>Итого</th>
+    </tr>
+    {% for date in orders_by_date %}
+    <tr>
+        <td>{{ date.date }}</td>
+        {% for i in order_items_detail_list %}
+        <td>{{ i.total }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

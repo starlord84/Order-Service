@@ -1,0 +1,42 @@
+{% extends 'order/base.html' %}
+
+{% block content %}
+<style>
+    .org table{
+        margin: 1%;
+        border: solid 2px black
+    }
+    .org table tr {
+        border: solid 1px black
+    }
+    .org table tr th {
+        border: solid 1px black;
+        font-size: 25px;
+    }
+    .org table tr td {
+        border: solid 1px black;
+        font-size: 18px;
+    }
+    .org table tr td a {
+        margin-left: 10px;
+        text-decoration: none
+    }
+
+</style>
+    <div class="org">
+        <table class="table table-bordered" border="1" width="80%">
+            <tr>
+                <th>Название организации</th>
+            </tr>
+            {% for org in organizations %}
+            <tr>
+<!--                <td><a href="{% url 'org-orders' org.id %}">{{ org.title }}</a></td>-->
+                <td><a href="{% url 'choice' org.id%}">{{ org.title }}</a></td>
+                <td>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
